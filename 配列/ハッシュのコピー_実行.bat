@@ -1,0 +1,2 @@
+perl ハッシュのコピー.pl
+pause

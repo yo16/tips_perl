@@ -1,0 +1,54 @@
+use strict;
+use warnings;
+use Win32::Console::ANSI;
+
+krkr;
+
+progress_bar;
+
+
+# エスケープシーケンス使用例[1]：krkr(くるくる)
+sub krkr {
+    my @krkr = (' ＼ ', ' ｜ ', ' ／ ', ' ― ');
+    $| = 1;                     # オートフラッシュ
+    print "Wait a moment:";     # この位置でくるくる…
+    print "\e[s";               # カーソル位置記憶
+    for (my $i=0; $i<32; ++$i) {
+        my $chr = shift @krkr;
+        print "\e[u", $chr;     # カーソル位置復元
+        push @krkr, $chr;
+        my $j = 1_000_000;
+        while ($j > 0) { --$j; }# テキトーに時間待ち
+    }
+    # カーソル行をクリアして "Complete!" を表示
+    print "\e[u", "\e[2K", "\e[13D", "Complete!\n";
+    $| = 0;
+    return " Ok.";
+}
+
+
+# エスケープシーケンス使用例[2]：progress_bar(進捗バー)
+sub progress_bar {
+    select(STDERR); $| = 1; # STDERR のバッファリングを止める
+    print STDERR "\n";
+    print STDERR "Min ←　・　　　　・　　　　・　　　　・　　→ Max\n";
+    print STDERR "□□□□◎□□□□◎□□□□◎□□□□◎□□□□◎\r";
+    # 末尾の \r(キャリッジリターン) によってカーソル位置を行の先頭に移動
+    print "\e[s";
+    # カーソル位置記憶(割り込みによってカーソル位置が変わる可能性に配慮)
+    ### メイン処理(仮) ###
+    my $line = 500;                 # 500行のテキストを読み込む前提
+    my $step = int($line / 25);     # 1/25 ごとに進捗バーを更新
+    my $wait = int(20_000_000 / $line);
+    my $j = 1;
+    while ($j <= $line) {
+        print "\e[u";                           # カーソル位置復元
+        print STDERR "■" if ($j % $step == 0); # $step行ごとに ■ を表示
+        print "\e[s";                           # カーソル位置記憶
+        foreach my $t (0..$wait) { ++$t; }      # テキトーな時間待ち処理
+        ++$j;
+    }
+    print STDERR "\n [Complete !]\n";
+    select(STDERR); $| = 0;
+    return " OK:";
+}

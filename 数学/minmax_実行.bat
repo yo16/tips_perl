@@ -1,0 +1,3 @@
+perl minmax.pl
+
+pause

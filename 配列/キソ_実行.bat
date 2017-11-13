@@ -1,0 +1,3 @@
+perl ƒLƒ\.pl
+
+pause

@@ -1,0 +1,5 @@
+call perl èIóπ.pl
+
+echo %ERRORLEVEL%
+
+pause

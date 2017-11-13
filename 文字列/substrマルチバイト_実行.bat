@@ -1,0 +1,3 @@
+perl substrマルチバイト.pl
+
+pause

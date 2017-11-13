@@ -1,0 +1,2 @@
+perl rtrim.pl
+pause

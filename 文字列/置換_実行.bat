@@ -1,0 +1,2 @@
+perl ’uŠ·.pl
+pause

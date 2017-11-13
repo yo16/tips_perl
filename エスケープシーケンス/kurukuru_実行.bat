@@ -1,0 +1,2 @@
+perl kurukuru.pl
+pause

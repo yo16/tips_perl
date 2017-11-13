@@ -1,0 +1,3 @@
+perl ‰Šú‰».pl
+
+pause

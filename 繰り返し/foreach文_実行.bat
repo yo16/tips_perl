@@ -1,0 +1,3 @@
+perl foreach•¶.pl
+
+pause

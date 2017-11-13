@@ -1,0 +1,3 @@
+perl ‚Ş‚¸‚¡``.pl
+
+pause

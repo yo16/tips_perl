@@ -1,0 +1,2 @@
+perl ファイルサイズ.pl
+pause

@@ -1,0 +1,5 @@
+
+perl substr.pl
+
+pause
+
