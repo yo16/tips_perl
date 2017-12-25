@@ -1,5 +1,5 @@
 # combination‚ÌÀ‘•
-# 2017/3/1 (c) y.ikeda
+# 2017/3/1 (c) yo16
 # Ql:http://www.programming-magic.com/20090123132035/
 
 use strict;

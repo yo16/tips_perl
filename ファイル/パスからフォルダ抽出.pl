@@ -1,4 +1,4 @@
-# 2011/11/09 y.ikeda
+# 2011/11/09 yo16
 
 my $infile = "パスからフォルダ抽出_in.txt";
 my $outfile = "パスからフォルダ抽出_out.txt";
